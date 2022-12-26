@@ -1,0 +1,10 @@
+extends _includes/layout.pug
+
+block content
+  div#tag
+    - page.posts.each(function(article){
+      .post-item
+        - post = article
+        include _includes/post_item.pug
+    - })
+    #paginator!= paginator()

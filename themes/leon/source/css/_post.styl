@@ -1,0 +1,130 @@
+color-border = #f3f3f3
+
+@font-face{
+  font-family: 'UbuntuMono';
+  src: url('../fonts/UbuntuMono-Regular.ttf');
+}
+
+#post
+    color color-primary
+    line-height 2.25em
+    font-size 1.1rem
+    p
+        text-align justify
+    a:not([class^="post-tag-link"])
+        text-decoration none
+        color inherit
+        border-bottom 3px solid #CBF8DF
+        box-shadow inset 0 -4px 0 #cbf8df
+        background transparent
+        transition background 150ms ease
+        &:hover, &:focus
+            background #CBF8DF
+
+    ol,ul
+        padding-inline-start 1em
+
+    img
+        display block
+        margin auto
+
+    table
+        display block
+        overflow auto
+        border-collapse collapse
+        margin 25px 0
+        font-size 0.9em
+        corner-radius 2em
+        width 100%
+        //thead, tbody
+          //width 100%
+        thead tr
+            background-color: #CCCCCC;
+            color: #ffffff;
+            text-align: left;
+        tbody tr:nth-of-type(even)
+            background-color: color-border;
+        tbody tr:last-of-type
+            border-bottom: 1px solid #f3f3f3;
+        th, td
+            padding: 12px 15px;
+
+    blockquote
+        background: #f9f9f9;
+        border-left: 0.35em solid #ccc;
+        margin: 1.5em 10px;
+        padding: 0.5em 10px;
+        p
+            display: inline;
+    blockquote.pullquote
+        background none
+        border-left none
+        text-align: left
+        width: 45%
+        margin 0
+        padding 0
+        font-size 1.1em
+        font-family font-serif
+        color color-accent
+        &.left
+            // margin-left: 0.5em
+            margin-right: 1em
+            float left
+        &.right
+            // margin-right: 0.5em
+            margin-left: 1em
+            float right
+    hr
+        background #e5e5e5
+        height 1px
+        border none
+        width 25%
+
+    .video-container
+        position: relative
+        padding-top: (9 / 16 * 100)% // 16:9 ratio
+        height: 0
+        overflow: hidden
+        iframe, object, embed
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            margin-top: 0
+
+
+    div.post-tags
+        display inline
+        a
+            margin-left 0.2em
+            padding 0.15em 0.62em
+            text-decoration none
+            border-radius 0.35em
+            font-size 0.9rem
+            color #9EABB3
+            border #E3E9ED 1px solid
+            transition color 0.3s ease
+            outline none
+
+    p, li
+        code
+          padding 0 0.25rem
+          background #e9ecef
+          border-radius 0.25rem
+          font-size 0.954em
+          font-family 'UbuntuMono', serif !important
+
+    // 注脚跳转按钮外边距
+    a[rev="footnote"]
+        margin-left 0.4em
+    // 注脚对齐
+    #footnotelist
+          ol
+              margin-left 0 !important
+              li
+                  span
+                      display inline !important
+                      vertical-align auto
+                      word-break break-all
+                      margin-left 0 !important

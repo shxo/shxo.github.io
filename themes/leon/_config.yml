@@ -1,0 +1,20 @@
+# html lang
+language: en
+
+# main menu navigation
+menu:
+  Home: /
+  Hobby: /hobby
+  About: /about
+  Archive: /archive
+
+# stylesheets loaded in the <head>
+stylesheets:
+  - /css/leon.css
+
+# scripts loaded in the end of the body
+scripts:
+  - /js/leon.js
+
+logo:
+  - ./asset/logo.JPG
