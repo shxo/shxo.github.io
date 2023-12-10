@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>吃饭的家伙 │ 平常心</title><link rel="stylesheet" href="/css/leon.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="平常心" type="application/atom+xml">
+</head><body><div id="content"><h1 id="title">吃饭的家伙</h1><div id="menu-outer"><nav id="menu-inner"><a id="menu-back" href="javascript:history.back()">Back</a></nav></div><div id="content-outer"><div id="content-inner"><article id="post"><time datetime="2023-12-02T16:00:00.000Z">2023-12-03</time><p>工欲善其事，必先利其器。</p>
+<h1 id="Sublime"><a href="#Sublime" class="headerlink" title="Sublime"></a>Sublime</h1><p>基本操作</p>
+<ul>
+<li>目录：CMD+K+B</li>
+<li>复制当前行到下一行：CMD+Shift+D</li>
+</ul>
+<p>终端</p>
+<ul>
+<li><code>export PATH=&quot;$PATH:/Applications/Sublime Text.app/Contents/SharedSupport/bin&quot;</code> </li>
+<li>使用方式：<code>subl .</code></li>
+</ul>
+<p>分屏</p>
+<ul>
+<li>上下：CMD+OPT+1&#x2F;2&#x2F;3</li>
+<li>左右：CMD+OPT+SHIFT+2&#x2F;3&#x2F;4</li>
+<li>4窗：CMD+OPT+5</li>
+</ul>
+<p>主题：</p>
+<ul>
+<li>字体、字号、行距</li>
+<li>主题</li>
+</ul>
+<p>包管理：</p>
+<ul>
+<li>CMD+Shift+P 然后输入 <code>package control</code></li>
+<li><a target="_blank" rel="noopener" href="https://packagecontrol.io/">https://packagecontrol.io/</a></li>
+<li>查看已安装的包 安装新包 卸载包</li>
+<li>终端：<a target="_blank" rel="noopener" href="https://github.com/randy3k/Terminus">https://github.com/randy3k/Terminus</a></li>
+</ul>
+<pre class="language-json" data-language="json"><code class="language-json"><span class="token comment">// toggle terminal panel</span>
+<span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span> 
+        <span class="token property">"keys"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"alt+`"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token property">"command"</span><span class="token operator">:</span> <span class="token string">"toggle_terminus_panel"</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span></code></pre>
+
+<ul>
+<li>JSON格式化</li>
+</ul>
+<p>执行代码：</p>
+<ul>
+<li>CMD+B</li>
+<li>执行Python代码</li>
+<li>执行Golang代码</li>
+</ul>
+<p>Debug:</p>
+<ul>
+<li>Debug</li>
+</ul>
+<p>代码格式化：</p>
+<ul>
+<li>JSON 安装包</li>
+<li>JavaScipt 自动格式化</li>
+<li>Vue 自动格式化</li>
+<li>Golang 自动格式化 gofmt</li>
+</ul>
+<p>引用跳转：</p>
+<ul>
+<li>Golang</li>
+</ul>
+<p>函数说明：</p>
+<ul>
+<li>Golang</li>
+</ul>
+<h2 id="Jetbrain"><a href="#Jetbrain" class="headerlink" title="Jetbrain"></a>Jetbrain</h2><p>基本操作：</p>
+<ul>
+<li>目录 CMD+1（自定义）</li>
+</ul>
+<p>Git：</p>
+<ul>
+<li>提交代码 CMD+0</li>
+<li>推送代码 CMD+Shift+K</li>
+<li>fetch代码</li>
+<li>git日志 CMD+2（自定义）</li>
+<li>git注释 CMD+3（自定义）</li>
+<li>pull代码 CMD+4（自定义）</li>
+</ul>
+<p>Debug：</p>
+<ul>
+<li>debug控制台 CMD+5</li>
+<li>运行代码 Ctrl + Shift + R</li>
+<li>编辑代码 Ctrl + Shift + D</li>
+</ul>
+<p>分屏：</p>
+<ul>
+<li>split down: shift+opt+cmd+向下</li>
+<li>split right: shift+opt+cmd+向上</li>
+</ul>
+<p>Macros：</p>
+<p>TODO</p>
+<p>自动化需要使用鼠标的操作，转化为键盘⌨️操作。</p>
+<h1 id="VScode"><a href="#VScode" class="headerlink" title="VScode"></a>VScode</h1><p>TODO </p>
+<h2 id="终端"><a href="#终端" class="headerlink" title="终端"></a>终端</h2><p>命令</p>
+<p>Git: </p>
+<ul>
+<li>git commit -am “u”（自定义alias gitam）</li>
+</ul>
+<p>traceroute<br>dig &#x2F;&#x2F; DNS<br>ps<br>top<br>kill<br>which $SHELL<br>uptime<br>diff &#x2F;&#x2F; 对比两个文件<br>curl<br>brew<br>cmatrix<br>python3 -m http.server</p>
+<p>ffmpeg:</p>
+<ul>
+<li>合并视频 TODO</li>
+</ul>
+<h1 id="在终端使用指纹取代密码"><a href="#在终端使用指纹取代密码" class="headerlink" title="在终端使用指纹取代密码"></a>在终端使用指纹取代密码</h1><p>sudo nano &#x2F;etc&#x2F;pam.d&#x2F;sudo<br>auth sufficient pam_tid.so</p>
+<p>输出重定向 </p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token operator">></span> 
+<span class="token operator"><span class="token file-descriptor important">2</span>></span> 
+<span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> 
+stdin 
+stdout 
+stderr</code></pre>
+
+<p>管道<br>awk -F”:” ‘{ print “Username:”, $1; print “Shell:”, $NF }’ &#x2F;etc&#x2F;passwd</p>
+<p>cat &gt; output.txt &lt;&lt; EOF</p>
+<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><p>Chrome</p>
+<p>Firefox</p>
+<p>QQ</p>
+<h2 id="GPT"><a href="#GPT" class="headerlink" title="GPT"></a>GPT</h2><p>TODO </p>
+</article><div id="paginator"></div></div></div><div id="bottom-outer"><div id="bottom-inner"><hr><div class="website-info"><div><a href="/">平常心</a><a>&nbsp</a><span>2023@Luca Yeung</span><a href="/atom.xml"><img src="/assets/rss.png"></a></div><div id="hexo"><a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">闽ICP备2021017077号-1&nbsp</a></div></div></div></div></div></body><script src="/js/leon.js"></script></html>

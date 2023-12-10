@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Tmux 和 Neovim │ 平常心</title><link rel="stylesheet" href="/css/leon.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="平常心" type="application/atom+xml">
+</head><body><div id="content"><h1 id="title">Tmux 和 Neovim</h1><div id="menu-outer"><nav id="menu-inner"><a id="menu-back" href="javascript:history.back()">Back</a></nav></div><div id="content-outer"><div id="content-inner"><article id="post"><time datetime="2023-12-10T03:05:50.108Z">2023-12-10</time><div class="post-tags"><a class="post-tag-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></div><h2 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h2><p>一、基础<br>理解 Tmux 的三大概念：Session（会话），Window（窗口）和 Pane（面板）<br>配置文件：<code>$HOME/.config/tmux/tmux.conf</code><br>重载配置文件：<code>tmux source $HOME/.config/tmux/tmux.conf</code><br>插件管理器：<a target="_blank" rel="noopener" href="https://github.com/tmux-plugins/tpm">Tmux Plugin Manager</a> </p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># tmux.conf</span>
+
+<span class="token comment"># Reset prefix key</span>
+unbind C-b
+<span class="token builtin class-name">set</span> <span class="token parameter variable">-g</span> prefix C-Space
+<span class="token builtin class-name">bind</span> C-Space send-prefix
+
+<span class="token comment"># Start windows and panes at 1, not 0</span>
+<span class="token builtin class-name">set</span> <span class="token parameter variable">-g</span> base-index <span class="token number">1</span>
+<span class="token builtin class-name">set</span> <span class="token parameter variable">-g</span> pane-base-index <span class="token number">1</span>
+set-window-option <span class="token parameter variable">-g</span> pane-base-index <span class="token number">1</span>
+set-option <span class="token parameter variable">-g</span> renumber-windows on
+
+<span class="token builtin class-name">set</span> <span class="token parameter variable">-g</span> @plugin <span class="token string">'tmux-plugins/tpm'</span>
+<span class="token builtin class-name">set</span> <span class="token parameter variable">-g</span> @plugin <span class="token string">'tmux-plugins/tmux-sensible'</span>
+
+run <span class="token string">'~/.tmux/plugins/tpm/tpm'</span></code></pre>
+<p>找插件：<a target="_blank" rel="noopener" href="https://github.com/tmux-plugins/list">https://github.com/tmux-plugins/list</a></p>
+<p>二、快捷键<br>Prefix Key(PK)：Ctrl+B</p>
+<p>Session</p>
+<ol>
+<li>创建新会话：<code>tmux</code></li>
+<li>创建自定义名称新会话：<code>tmux new -s my-session</code></li>
+<li>会话更名：PK+$</li>
+<li><code>tmux ls </code></li>
+<li><code>tmux a</code></li>
+<li>PK+S</li>
+<li>PK+W</li>
+<li><code>tmux attach -t my-session</code></li>
+</ol>
+<p>Window</p>
+<ol>
+<li>创建新窗口：PK+C</li>
+<li>切换窗口：PK+0&#x2F;1&#x2F;2 或 PK+N&#x2F;P</li>
+<li>关闭窗口：PK+&amp;</li>
+</ol>
+<p>Pane</p>
+<ol>
+<li>左右分屏：PK+% </li>
+<li>上下分屏：PK+”</li>
+<li>Pane 之间移动光标：PK+方向键 或 PK+Q+0&#x2F;1&#x2F;2</li>
+<li>移动 Pane：PK+{ 和 PK+}</li>
+<li>Pane 缩放：PK+Z</li>
+<li>关闭 Pane：PK+X</li>
+</ol>
+<p>三、参考资料</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DzNmUNvnB04">Tmux has forever changed the way I write code</a></li>
+<li><a target="_blank" rel="noopener" href="https://tmuxcheatsheet.com/">https://tmuxcheatsheet.com/</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/tmux/tmux/wiki">https://github.com/tmux/tmux/wiki</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">https://www.ruanyifeng.com/blog/2019/10/tmux.html</a></li>
+</ul>
+<h2 id="Neovim"><a href="#Neovim" class="headerlink" title="Neovim"></a>Neovim</h2><p>一、基础</p>
+<ol>
+<li>NeoVim 的配置：Lua + VimScript</li>
+<li>官网：<a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/wiki/Installing-Neovim">https://github.com/neovim/neovim/wiki/Installing-Neovim</a></li>
+<li>找插件：<a target="_blank" rel="noopener" href="https://neovimcraft.com/">https://neovimcraft.com/</a></li>
+<li>LSP：自动代码补全 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/445331508">掘金小册</a></li>
+<li>VimScript 学习文档：<a target="_blank" rel="noopener" href="https://devhints.io/vimscript">1) Cheatsheet</a> <a target="_blank" rel="noopener" href="https://learnvimscriptthehardway.stevelosh.com/">2) Learn VimScript The Hard Way</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.nerdfonts.com/">Nerd Fonts</a></li>
+</ol>
+<p>二、LazyVim</p>
+<ol>
+<li>官网：<a target="_blank" rel="noopener" href="https://www.lazyvim.org/">https://www.lazyvim.org/</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=N93cTbtLCIM">Zero to IDE with LazyVim</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=fFHlfbKVi30">2024 年 NeoVim Web 开发环境搭建</a> 在这个视频中 devaslife 使用了 LazyVim 作为前端开发的IDE。另外这是 👉 <a target="_blank" rel="noopener" href="https://www.devas.life/">devaslife 的博客</a></li>
+</ol>
+<p>三、NvChad<br><a target="_blank" rel="noopener" href="https://nvchad.com/">https://nvchad.com/</a></p>
+</article><div id="paginator"></div></div></div><div id="bottom-outer"><div id="bottom-inner"><hr><div class="website-info"><div><a href="/">平常心</a><a>&nbsp</a><span>2023@Luca Yeung</span><a href="/atom.xml"><img src="/assets/rss.png"></a></div><div id="hexo"><a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">闽ICP备2021017077号-1&nbsp</a></div></div></div></div></div></body><script src="/js/leon.js"></script></html>

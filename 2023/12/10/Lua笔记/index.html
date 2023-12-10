@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lua 总结 │ 平常心</title><link rel="stylesheet" href="/css/leon.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="平常心" type="application/atom+xml">
+</head><body><div id="content"><h1 id="title">Lua 总结</h1><div id="menu-outer"><nav id="menu-inner"><a id="menu-back" href="javascript:history.back()">Back</a></nav></div><div id="content-outer"><div id="content-inner"><article id="post"><time datetime="2023-12-10T03:05:50.092Z">2023-12-10</time><div class="post-tags"><a class="post-tag-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></div><p>一、几个要点</p>
+<ol>
+<li>Luajit 即时编译器</li>
+</ol>
+<p>21个保留关键词</p>
+<ol>
+<li>while</li>
+<li>until</li>
+<li>true</li>
+<li>then</li>
+<li>return</li>
+<li>repeat</li>
+<li>or</li>
+<li>not </li>
+<li>nil</li>
+<li>local</li>
+<li>in</li>
+<li>if </li>
+<li>function</li>
+<li>for</li>
+<li>false</li>
+<li>end</li>
+<li>elseif</li>
+<li>else</li>
+<li>do</li>
+<li>break</li>
+<li>and</li>
+</ol>
+<p>二、基础内容<br>变量 </p>
+<ol>
+<li>动态语言不用声明类型</li>
+</ol>
+<pre class="language-lua" data-language="lua"><code class="language-lua">name <span class="token operator">=</span> <span class="token string">"Luca"</span> <span class="token comment">-- 全局变量</span>
+<span class="token keyword">local</span> age <span class="token operator">=</span> <span class="token number">23</span>
+<span class="token function">print</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span></code></pre>
+
+<p>数据结构：Table </p>
+<ol>
+<li>可模拟数组、Map、图和树 类</li>
+<li>数组下标从1开始</li>
+</ol>
+<pre class="language-lua" data-language="lua"><code class="language-lua">names <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"Luca"</span><span class="token punctuation">,</span> <span class="token string">"Allen"</span><span class="token punctuation">,</span> <span class="token string">"James"</span><span class="token punctuation">&#125;</span>
+
+students <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+	<span class="token punctuation">[</span><span class="token string">'luca'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Go"</span><span class="token punctuation">,</span>
+	<span class="token punctuation">[</span><span class="token string">'allen'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Java"</span>
+<span class="token punctuation">&#125;</span></code></pre>
+
+<p>循环</p>
+<pre class="language-lua" data-language="lua"><code class="language-lua">students <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+	<span class="token punctuation">[</span><span class="token string">'luca'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Go"</span><span class="token punctuation">,</span>
+	<span class="token punctuation">[</span><span class="token string">'allen'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Java"</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> <span class="token function">pairs</span><span class="token punctuation">(</span>students<span class="token punctuation">)</span> <span class="token keyword">do</span> 
+	<span class="token function">print</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span> v<span class="token punctuation">)</span>
+<span class="token keyword">end</span></code></pre>
+
+<p>函数 </p>
+<pre class="language-lua" data-language="lua"><code class="language-lua"><span class="token keyword">function</span> <span class="token function">addNum</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> <span class="token number">2</span><span class="token operator">*</span>n
+<span class="token keyword">end</span>
+
+<span class="token function">addNum</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+
+<span class="token comment">-- 函数可以作为参数</span>
+<span class="token function">callback</span><span class="token punctuation">(</span>addNum<span class="token punctuation">)</span></code></pre>
+
+<p>Coroutine</p>
+<pre class="language-lua" data-language="lua"><code class="language-lua">co <span class="token operator">=</span> coroutine<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	coroutine<span class="token punctuation">.</span><span class="token function">yield</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">)</span>
+	coroutine<span class="token punctuation">.</span><span class="token function">yield</span><span class="token punctuation">(</span><span class="token string">'2'</span><span class="token punctuation">)</span>
+	<span class="token keyword">return</span> <span class="token string">"end"</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+
+coroutine<span class="token punctuation">.</span><span class="token function">resume</span><span class="token punctuation">(</span>co<span class="token punctuation">)</span> <span class="token comment">-- 1</span>
+coroutine<span class="token punctuation">.</span><span class="token function">resume</span><span class="token punctuation">(</span>co<span class="token punctuation">)</span> <span class="token comment">-- 2</span>
+coroutine<span class="token punctuation">.</span><span class="token function">resume</span><span class="token punctuation">(</span>co<span class="token punctuation">)</span> <span class="token comment">-- end</span>
+coroutine<span class="token punctuation">.</span><span class="token function">resume</span><span class="token punctuation">(</span>co<span class="token punctuation">)</span> <span class="token comment">-- error!!!</span></code></pre>
+
+<p>包管理<br><a target="_blank" rel="noopener" href="https://luarocks.org/">LuaRocks</a></p>
+<p>三、参考资料</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.lua.org/">Lua官网</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=jUuqBZwwkQw">Lua in 100 Seconds——YouTube</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/lua/lua-object-oriented.html">Lua——菜鸟教程</a></li>
+</ol>
+</article><div id="paginator"></div></div></div><div id="bottom-outer"><div id="bottom-inner"><hr><div class="website-info"><div><a href="/">平常心</a><a>&nbsp</a><span>2023@Luca Yeung</span><a href="/atom.xml"><img src="/assets/rss.png"></a></div><div id="hexo"><a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">闽ICP备2021017077号-1&nbsp</a></div></div></div></div></div></body><script src="/js/leon.js"></script></html>

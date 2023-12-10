@@ -1,0 +1,537 @@
+@font-face {
+  font-family: 'Merriweather';
+  src: url("../fonts/Merriweather-Light.ttf");
+}
+@font-face {
+  font-family: 'Merriweatherb';
+  src: url("../fonts/Merriweather-Black.ttf");
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center /* For horizontal alignment */;
+  padding-top: 5em;
+  padding-bottom: 8em;
+  font-family: 'Merriweather', serif;
+  color: #1a202c;
+  font-size: 1.1rem;
+  line-height: 2.25em;
+  margin: 1em;
+}
+div#content {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+h1#title {
+  text-align: center;
+  margin-bottom: 1.8em;
+  line-height: 1.2em;
+}
+div#menu-outer {
+  margin-top: 0.5em;
+}
+nav#menu-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav#menu-inner a,
+nav#menu-inner span {
+  margin-right: 1em;
+  font-weight: 520;
+}
+nav#menu-inner span {
+  color: #1a202c;
+  text-decoration: none;
+}
+nav#menu-inner a {
+  color: #394867;
+  text-decoration: underline;
+}
+nav#menu-inner {
+  justify-content: start;
+}
+div#content-outer {
+  margin-top: 2em;
+}
+div#content-outer div#content-inner strong {
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-family: 'Merriweatherb', serif;
+}
+div#content-outer div#content-inner a:not([class^="page-number"]):not([class^="extend next"]):not([class^="extend prev"]):not([class^="menu-item"]):not([class^="post-tag-link"]):not([class^="post-item-link"]) {
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 3px solid #cbf8df;
+  box-shadow: inset 0 -4px 0 #cbf8df;
+  background: transparent;
+  transition: background 150ms ease;
+}
+div#content-outer div#content-inner a:not([class^="page-number"]):not([class^="extend next"]):not([class^="extend prev"]):not([class^="menu-item"]):not([class^="post-tag-link"]):not([class^="post-item-link"]):hover,
+div#content-outer div#content-inner a:not([class^="page-number"]):not([class^="extend next"]):not([class^="extend prev"]):not([class^="menu-item"]):not([class^="post-tag-link"]):not([class^="post-item-link"]):focus {
+  background: #cbf8df;
+}
+div#content-outer div#content-inner div#paginator {
+  display: flex;
+  justify-content: center;
+  margin-top: 4em;
+}
+div#content-outer div#content-inner div#paginator a {
+  margin-right: 1em;
+  line-height: 1em;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 2px solid #000;
+  background: transparent;
+  transition: background 150ms ease;
+}
+div#content-outer div#content-inner div#paginator span {
+  line-height: 1em;
+  color: #394867;
+  margin-right: 1em;
+}
+div.post-item {
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+div.post-item p {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+div.post-item p:hover,
+div.post-item p:focus {
+  border-bottom-color: #222;
+}
+div.post-item p a {
+  color: #19202b;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-decoration: none;
+}
+time {
+  margin-right: 0.4em;
+  color: #ccc;
+}
+div#bottom-inner {
+  margin-top: 8em;
+}
+div#bottom-inner div.website-info {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.6em;
+}
+div#bottom-inner hr {
+  background: #ccc;
+  height: 1px;
+  border: none;
+}
+div#bottom-inner div {
+  display: flex;
+  height: 2em;
+  justify-content: space-between;
+  align-items: center;
+}
+div#bottom-inner div a {
+  color: #888;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+div#bottom-inner div a:hover,
+div#bottom-inner div a:focus {
+  color: #222;
+}
+div#bottom-inner div #hexo {
+  float: right;
+  margin-top: 0.6em;
+}
+div#bottom-inner div img {
+  width: 1em;
+  height: 1em;
+  margin-left: 0.5em;
+  margin-top: 3px;
+}
+img {
+  max-width: 100%;
+}
+aside a {
+  color: #394867;
+}
+aside li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+blockquote {
+  background: #f9f9f9;
+  border-left: 0.35em solid #ccc;
+  margin: 1.5em 0;
+  padding: 0.5em 10px;
+}
+blockquote p {
+  display: inline;
+}
+blockquote.pullquote {
+  background: none;
+  border-left: none;
+  text-align: left;
+  width: 45%;
+  margin: 0;
+  padding: 0;
+  font-size: 1.1em;
+  font-family: font-serif;
+  color: #394867;
+}
+blockquote.pullquote.left {
+  margin-right: 1em;
+  float: left;
+}
+blockquote.pullquote.right {
+  margin-left: 1em;
+  float: right;
+}
+@media (min-width: 1025px) {
+  h1#title {
+    text-align: left;
+  }
+  div.post-item {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  #hexo {
+    margin-top: 0;
+  }
+  nav#menu-inner {
+    justify-content: start;
+  }
+  div#paginator {
+    justify-content: start !important;
+  }
+  div#bottom-inner div.website-info {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 0;
+  }
+  div#content {
+    width: 40em;
+    max-width: 90%;
+  }
+}
+@font-face {
+  font-family: 'UbuntuMono';
+  src: url("../fonts/UbuntuMono-Regular.ttf");
+}
+#post {
+  color: #1a202c;
+  line-height: 2.25em;
+  font-size: 1.1rem;
+}
+#post p {
+  text-align: justify;
+}
+#post a:not([class^="post-tag-link"]) {
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 3px solid #cbf8df;
+  box-shadow: inset 0 -4px 0 #cbf8df;
+  background: transparent;
+  transition: background 150ms ease;
+}
+#post a:not([class^="post-tag-link"]):hover,
+#post a:not([class^="post-tag-link"]):focus {
+  background: #cbf8df;
+}
+#post ol,
+#post ul {
+  padding-inline-start: 1em;
+}
+#post img {
+  display: block;
+  margin: auto;
+}
+#post table {
+  display: block;
+  overflow: auto;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  corner-radius: 2em;
+  width: 100%;
+}
+#post table thead tr {
+  background-color: #ccc;
+  color: #fff;
+  text-align: left;
+}
+#post table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+#post table tbody tr:last-of-type {
+  border-bottom: 1px solid #f3f3f3;
+}
+#post table th,
+#post table td {
+  padding: 12px 15px;
+}
+#post blockquote {
+  background: #f9f9f9;
+  border-left: 0.35em solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+}
+#post blockquote p {
+  display: inline;
+}
+#post blockquote.pullquote {
+  background: none;
+  border-left: none;
+  text-align: left;
+  width: 45%;
+  margin: 0;
+  padding: 0;
+  font-size: 1.1em;
+  font-family: font-serif;
+  color: #394867;
+}
+#post blockquote.pullquote.left {
+  margin-right: 1em;
+  float: left;
+}
+#post blockquote.pullquote.right {
+  margin-left: 1em;
+  float: right;
+}
+#post hr {
+  background: #e5e5e5;
+  height: 1px;
+  border: none;
+  width: 25%;
+}
+#post .video-container {
+  position: relative;
+  padding-top: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+#post .video-container iframe,
+#post .video-container object,
+#post .video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin-top: 0;
+}
+#post div.post-tags {
+  display: inline;
+}
+#post div.post-tags a {
+  margin-left: 0.2em;
+  padding: 0.15em 0.62em;
+  text-decoration: none;
+  border-radius: 0.35em;
+  font-size: 0.9rem;
+  color: #9eabb3;
+  border: #e3e9ed 1px solid;
+  transition: color 0.3s ease;
+  outline: none;
+}
+#post p code,
+#post li code {
+  padding: 0 0.25rem;
+  background: #e9ecef;
+  border-radius: 0.25rem;
+  font-size: 0.954em;
+  font-family: 'UbuntuMono', serif !important;
+}
+#post a[rev="footnote"] {
+  margin-left: 0.4em;
+}
+#post #footnotelist ol {
+  margin-left: 0 !important;
+}
+#post #footnotelist ol li span {
+  display: inline !important;
+  vertical-align: auto;
+  word-break: break-all;
+  margin-left: 0 !important;
+}
+@font-face {
+  font-family: 'UbuntuMono';
+  src: url("../fonts/UbuntuMono-Regular.ttf");
+}
+/**
+ * a11y-dark theme for JavaScript, CSS, and HTML
+ * Based on the okaidia theme: https://github.com/PrismJS/prism/blob/gh-pages/themes/prism-okaidia.css
+ * @author ericwbailey
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #f8f8f2;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #2b2b2b;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #d4d0ab;
+}
+
+.token.punctuation {
+  color: #fefefe;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #ffa07a;
+}
+
+.token.boolean,
+.token.number {
+  color: #00e0e0;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #abe338;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #00e0e0;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function {
+  color: #ffd700;
+}
+
+.token.keyword {
+  color: #00e0e0;
+}
+
+.token.regex,
+.token.important {
+  color: #ffd700;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    color: windowText;
+    background: window;
+  }
+
+  :not(pre) > code[class*="language-"],
+  pre[class*="language-"] {
+    background: window;
+  }
+
+  .token.important {
+    background: highlight;
+    color: window;
+    font-weight: normal;
+  }
+
+  .token.atrule,
+  .token.attr-value,
+  .token.function,
+  .token.keyword,
+  .token.operator,
+  .token.selector {
+    font-weight: bold;
+  }
+
+  .token.attr-value,
+  .token.comment,
+  .token.doctype,
+  .token.function,
+  .token.keyword,
+  .token.operator,
+  .token.property,
+  .token.string {
+    color: highlight;
+  }
+
+  .token.attr-value,
+  .token.url {
+    font-weight: normal;
+  }
+}
+
+#post pre,
+#post code {
+  overflow: auto;
+  font-size: 1em;
+  font-family: 'UbuntuMono', serif !important;
+  border-radius: 1em;
+}
