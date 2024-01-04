@@ -233,6 +233,8 @@ blockquote.pullquote.right {
 }
 #post p {
   text-align: justify;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
 }
 #post a:not([class^="post-tag-link"]) {
   text-decoration: none;
